@@ -64,9 +64,8 @@ const create = async (req, res) => {
       category,
       note,
     });
-    const { createdAt, updatedAt, ...expenseData } = expense.toJSON();
 
-    res.status(201).json(expenseData);
+    res.status(201).json(expense);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -124,7 +123,7 @@ const getOne = async (req, res) => {
 
     if (!id || isNaN(Number(id))) {
       return res.status(400).json({
-        message: 'Id reqiured and must be a number',
+        message: 'Id required and must be a number',
       });
     }
 
@@ -148,7 +147,7 @@ const deleteOnce = async (req, res) => {
 
     if (!id || isNaN(Number(id))) {
       return res.status(400).json({
-        message: 'Id reqiured and must be a number',
+        message: 'Id required and must be a number',
       });
     }
 
@@ -158,7 +157,7 @@ const deleteOnce = async (req, res) => {
       return res.status(404).json({ message: 'Expense Not Found' });
     }
 
-    return res.status(204).json();
+    return res.sendStatus(204);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -170,7 +169,7 @@ const patch = async (req, res) => {
 
     if (!id || isNaN(Number(id))) {
       return res.status(400).json({
-        message: 'Id reqiured and must be a number',
+        message: 'Id required and must be a number',
       });
     }
 

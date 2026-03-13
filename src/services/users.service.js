@@ -6,7 +6,7 @@ const createUser = async (name) => {
       name,
     });
   } catch (e) {
-    throw new Error('Something went wrong while creating the user');
+    throw new Error(e.message);
   }
 };
 

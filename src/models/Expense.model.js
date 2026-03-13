@@ -33,9 +33,6 @@ Expense.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    category: {
-      type: DataTypes.STRING,
-    },
     categoryId: {
       type: DataTypes.INTEGER,
       references: {

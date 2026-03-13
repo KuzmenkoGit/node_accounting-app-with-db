@@ -24,7 +24,7 @@ const create = async (req, res) => {
     });
   } catch (e) {
     return res.status(500).json({
-      error: e.message,
+      message: e.message,
     });
   }
 };
@@ -35,7 +35,7 @@ const findAll = async (req, res) => {
 
     return res.status(200).json(users);
   } catch (error) {
-    return res.status(500).json(error.message);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -57,7 +57,7 @@ const findOnce = async (req, res) => {
 
     return res.status(200).json(user);
   } catch (error) {
-    return res.status(500).json(error.message);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -80,7 +80,7 @@ const deleteOnce = async (req, res) => {
     return res.sendStatus(204);
   } catch (error) {
     return res.status(500).json({
-      error: error.message,
+      message: error.message,
     });
   }
 };
@@ -113,7 +113,7 @@ const patchOnce = async (req, res) => {
     return res.status(200).json(user);
   } catch (error) {
     return res.status(500).json({
-      message: 'Undetectable error',
+      message: error.message,
     });
   }
 };
