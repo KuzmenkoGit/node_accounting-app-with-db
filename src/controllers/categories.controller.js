@@ -21,7 +21,9 @@ const getOne = async (req, res) => {
     const id = Number(req.params.id);
 
     if (!id || isNaN(id)) {
-      return res.status(400).json({ message: 'Id is required and must be a number' });
+      return res
+        .status(400)
+        .json({ message: 'Id is required and must be a number' });
     }
 
     const category = await getCategoryById(id);
@@ -41,7 +43,9 @@ const create = async (req, res) => {
     const { name } = req.body;
 
     if (!name || typeof name !== 'string' || name.trim() === '') {
-      return res.status(400).json({ message: 'name is required and must be a non-empty string' });
+      return res
+        .status(400)
+        .json({ message: 'name is required and must be a non-empty string' });
     }
 
     const category = await createCategory(name);
@@ -58,13 +62,17 @@ const patch = async (req, res) => {
     const id = Number(req.params.id);
 
     if (!id || isNaN(id)) {
-      return res.status(400).json({ message: 'Id is required and must be a number' });
+      return res
+        .status(400)
+        .json({ message: 'Id is required and must be a number' });
     }
 
     const { name } = req.body;
 
     if (!name || typeof name !== 'string' || name.trim() === '') {
-      return res.status(400).json({ message: 'name is required and must be a non-empty string' });
+      return res
+        .status(400)
+        .json({ message: 'name is required and must be a non-empty string' });
     }
 
     const [updatedRowsCount] = await updateCategory(id, name);
@@ -86,7 +94,9 @@ const deleteOnce = async (req, res) => {
     const id = Number(req.params.id);
 
     if (!id || isNaN(id)) {
-      return res.status(400).json({ message: 'Id is required and must be a number' });
+      return res
+        .status(400)
+        .json({ message: 'Id is required and must be a number' });
     }
 
     const isDeleted = await deleteCategory(id);
@@ -101,4 +111,10 @@ const deleteOnce = async (req, res) => {
   }
 };
 
-module.exports = { getAll, getOne, create, patch, deleteOnce };
+module.exports = {
+  getAll,
+  getOne,
+  create,
+  patch,
+  deleteOnce,
+};
