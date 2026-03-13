@@ -68,7 +68,7 @@ const create = async (req, res) => {
 
     res.status(201).json(expenseData);
   } catch (error) {
-    throw new Error(error.message);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -114,7 +114,7 @@ const getAll = async (req, res) => {
 
     return res.status(200).json(expenses);
   } catch (error) {
-    throw new Error(error.message);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -138,7 +138,7 @@ const getOne = async (req, res) => {
 
     return res.status(200).json(expense);
   } catch (error) {
-    throw new Error(error.message);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -160,7 +160,7 @@ const deleteOnce = async (req, res) => {
 
     return res.status(204).json();
   } catch (error) {
-    throw new Error(error.message);
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -235,7 +235,7 @@ const patch = async (req, res) => {
 
     return res.status(200).json(findExpense);
   } catch (error) {
-    throw new Error(error.message);
+    return res.status(500).json({ message: error.message });
   }
 };
 

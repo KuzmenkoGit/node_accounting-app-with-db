@@ -36,6 +36,13 @@ Expense.init(
     category: {
       type: DataTypes.STRING,
     },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'categories',
+        key: 'id',
+      },
+    },
     note: {
       type: DataTypes.STRING,
     },
